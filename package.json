@@ -1,12 +1,12 @@
 {
-  "name": "tutorial-backend",
+  "name": "performance-t4-backend",
   "version": "1.0.0",
-  "description": "Tutorial Node.js with Rest API",
+  "description": "Performance Node.js with Rest API",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "bundle": "mkdir deploy && cp -r app server.js package.json package-lock.json tutorial-backend.service .env deploy"
+    "bundle": "mkdir deploy && cp -r app server.js package.json package-lock.json performance-t4-backend.service .env deploy"
   },
   "keywords": [
     "node.js",

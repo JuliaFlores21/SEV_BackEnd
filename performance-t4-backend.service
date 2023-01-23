@@ -1,11 +1,11 @@
 [Unit]
-Description=NodeJS Tutorial App
+Description=NodeJS Music Performance App
 After=network.target
  
 [Service]
 Type=simple
 User=ubuntu
-WorkingDirectory=/home/ubuntu/nodeapps/tutorial-backend/
+WorkingDirectory=/home/ubuntu/nodeapps/performance/t4
 ExecStart=/usr/bin/npm run start
 Restart=on-failure
  

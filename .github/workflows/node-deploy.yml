@@ -41,21 +41,21 @@ jobs:
                   SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
                   ARGS: '-rltgoDzvO --delete'
                   SOURCE: 'deploy/'
-                  REMOTE_HOST: 'tutorial.eaglesoftwareteam.com'
+                  REMOTE_HOST: 'perform.eaglesoftwareteams.com'
                   REMOTE_USER: ubuntu
-                  TARGET: 'nodeapps/tutorial-backend'
+                  TARGET: 'nodeapps/performance-t4-backend'
             - name: Execute SSH commmands on remote server
               uses: JimCronqvist/action-ssh@master
               env:
                   NAME: 'Root'
               with:
-                  hosts: 'ubuntu@tutorial.eaglesoftwareteam.com'
+                  hosts: 'ubuntu@perform.eaglesoftwareteams.com'
                   privateKey: ${{ secrets.SERVER_SSH_KEY }}
                   debug: false
                   command: |
-                      cd nodeapps/tutorial-backend
+                      cd nodeapps/performance/t4
                       npm install
-                      sudo systemctl stop tutorial-backend
-                      sudo cp tutorial-backend.service /lib/systemd/system/tutorial-backend.service
+                      sudo systemctl stop performance-t4-backend
+                      sudo cp performance-t4-backend.service /lib/systemd/system/performance-t4-backend.service
                       sudo systemctl daemon-reload
-                      sudo systemctl start tutorial-backend
+                      sudo systemctl start performance-t4-backend
