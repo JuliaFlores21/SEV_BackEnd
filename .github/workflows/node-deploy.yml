@@ -43,7 +43,7 @@ jobs:
                   SOURCE: 'deploy/'
                   REMOTE_HOST: 'perform.eaglesoftwareteam.com'
                   REMOTE_USER: ubuntu
-                  TARGET: 'nodeapps/performance-t4-backend'
+                  TARGET: 'nodeapps/performance/t4'
             - name: Execute SSH commmands on remote server
               uses: JimCronqvist/action-ssh@master
               env:
