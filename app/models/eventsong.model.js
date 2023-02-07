@@ -9,12 +9,6 @@ module.exports = (sequelize, Sequelize) =>
         autoIncrement: true,
         primaryKey: true
       },
-      repertoireId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull : false,
-        foreignKey: true
-      },
       songId: 
       {
         type: Sequelize.INTEGER,
