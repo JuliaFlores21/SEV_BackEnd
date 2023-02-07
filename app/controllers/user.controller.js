@@ -1,3 +1,4 @@
+
 const db = require("../models");
 const User = db.user;
 const Op = db.Sequelize.Op;
@@ -15,9 +16,9 @@ exports.create = (req, res) => {
     // Create a User
     const user = {
       id: req.body.id,
+      email: req.body.email,
       fName: req.body.fName,
       lName: req.body.lName,
-      email: req.body.email,
       // refresh_token: req.body.refresh_token,
       // expiration_date: req.body.expiration_date
     };

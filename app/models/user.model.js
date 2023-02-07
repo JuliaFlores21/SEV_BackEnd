@@ -1,27 +1,36 @@
-module.exports = (sequelize, Sequelize) => {
-    const User = sequelize.define("user", {
-      id: {
+
+module.exports = (sequelize, Sequelize) => 
+{
+    const User = sequelize.define("user", 
+    {
+      id: 
+      {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      fName: {
+      email: 
+      {
         type: Sequelize.STRING,
         allowNull: false
       },
-      lName: {
+      firstName: 
+      {
         type: Sequelize.STRING,
         allowNull: false
       },
-      email: {
+      lastName: 
+      {
         type: Sequelize.STRING,
         allowNull: false
       },
-      // refresh_token: {
+      // refresh_token: 
+      // {
       //   type: Sequelize.STRING(512),
       //   allowNull: true
       // },
-      // expiration_date: {
+      // expiration_date: 
+      // {
       //   type: Sequelize.DATE,
       //   allowNull: true
       // },
