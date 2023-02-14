@@ -12,20 +12,17 @@ module.exports = (sequelize, Sequelize) =>
       facultyId: 
       {
         type: Sequelize.INTEGER,
-        allowNull : false,
-        foreignKey: true
+        allowNull : true //check
       },
       accompanistId: 
       {
         type: Sequelize.INTEGER,
-        allowNull : false,
-        foreignKey: true
+        allowNull : true //check
       },
       eventId: 
       {
         type: Sequelize.INTEGER,
-        allowNull : false,
-        foreignKey: true
+        allowNull : false
       },
       startTime: 
       {

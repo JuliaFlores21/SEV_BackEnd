@@ -12,20 +12,17 @@ module.exports = (sequelize, Sequelize) =>
       studentId: 
       {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        foreignKey: true
+        allowNull: false //check
       },
       privateInstructorId: 
       {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        foreignKey: true
+        allowNull: false
       },
       accompanistId: 
       {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        foreignKey: true
+        allowNull: false
       },
       type: 
       {

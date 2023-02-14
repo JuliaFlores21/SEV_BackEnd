@@ -12,8 +12,7 @@ module.exports = (sequelize, Sequelize) =>
       songId: 
       {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        foreignKey: true
+        allowNull: false
       },
       firstName: 
       {

@@ -12,32 +12,32 @@ module.exports = (sequelize, Sequelize) =>
       studentId: 
       {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        foreignKey: true
+        allowNull: false
       },
       instructorId: 
       {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        foreignKey: true
+        allowNull: false
       },
       accompanistId: 
       {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        foreignKey: true
+        allowNull: false
       },
       eventId: 
       {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        foreignKey: true
+        allowNull: false
+      },
+      critiqueId: 
+      {
+        type: Sequelize.INTEGER,
+        allowNull: false //check
       },
       eventSongId: 
       {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        foreignKey: true
+        allowNull: false //check
       },
       startTime: 
       {
