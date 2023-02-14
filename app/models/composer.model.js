@@ -1,7 +1,7 @@
 
 module.exports = (sequelize, Sequelize) => 
 {
-    const User = sequelize.define("user", 
+    const Composer = sequelize.define("composer", 
     {
       id: 
       {
@@ -9,9 +9,9 @@ module.exports = (sequelize, Sequelize) =>
         autoIncrement: true,
         primaryKey: true
       },
-      email: 
+      songId: 
       {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       firstName: 
@@ -24,17 +24,22 @@ module.exports = (sequelize, Sequelize) =>
         type: Sequelize.STRING,
         allowNull: false
       },
-      // refresh_token: 
-      // {
-      //   type: Sequelize.STRING(512),
-      //   allowNull: true
-      // },
-      // expiration_date: 
-      // {
-      //   type: Sequelize.DATE,
-      //   allowNull: true
-      // },
+      nationality: 
+      {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      birthday: 
+      {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      deathDate: 
+      {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
     });
   
-    return User;
+    return Composer;
 };
