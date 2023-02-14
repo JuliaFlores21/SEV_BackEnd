@@ -23,7 +23,6 @@ db.event = require("./event.model.js")(sequelize, Sequelize);
 db.eventsession = require("./eventsession.model.js")(sequelize, Sequelize);
 db.eventsong = require("./eventsong.model.js")(sequelize, Sequelize);
 db.instrument = require("./instrument.model.js")(sequelize, Sequelize);
-db.repertoire = require("./repertoire.model.js")(sequelize, Sequelize);
 db.role = require("./role.model.js")(sequelize, Sequelize);
 db.session = require("./session.model.js")(sequelize, Sequelize);
 db.song = require("./song.model.js")(sequelize, Sequelize);
