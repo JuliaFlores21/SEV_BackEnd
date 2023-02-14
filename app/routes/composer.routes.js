@@ -19,7 +19,7 @@ module.exports = app => {
     router.delete("/:id", [authenticate], composer.delete);
   
     // Delete all composer
-    router.delete("/", [authenticate], composer.deleteAll);
+    // router.delete("/", [authenticate], composer.deleteAll);
   
-    app.use('//composer', router);
+    app.use('/composer', router);
   };

@@ -4,26 +4,26 @@ module.exports = app => {
     const { authenticate } = require("../authorization/authorization.js");
     var router = require("express").Router();
 
-    // Create a new Event Sesion for a Tutorial
-    router.post("/:WIP/eventsessions/", [authenticate], eventsessions.create);
+    // Create a new Event Sesion
+    router.post("/", [authenticate], eventsessions.create);
 
-    // Retrieve all Event Sessions for a Tutorial
-    router.get("/:WIP/eventsessions/", [authenticate], eventsessions.findAllForTutorial);
+    // Retrieve all Event Sessions
+    router.get("/", [authenticate], eventsessions.findAllForTutorial);
 
-    // Retrieve all published Event Sessions for a Tutorial
-    router.get("/:WIP/eventsessions/published", [authenticate], eventsessions.findAllPublished);
+    // Retrieve all published Event Sessions
+    router.get("/published", [authenticate], eventsessions.findAllPublished);
 
-    // Retrieve a single Event seesion with id
-    router.get("/:WIP/eventsessions/:id", [authenticate], eventsessions.findOne);
+    // Retrieve a single Event session with id
+    router.get("/:id", [authenticate], eventsessions.findOne);
 
-    // Update a Event Seesion with id
-    router.put("/:WIP/eventsessions/:id", [authenticate], eventsessions.update);
+    // Update a Event Session with id
+    router.put("/:id", [authenticate], eventsessions.update);
 
     // Delete a Event Session with id
-    router.delete("/:WIP/eventsessions/:id", [authenticate], eventsessions.delete);
+    router.delete("/:id", [authenticate], eventsessions.delete);
 
     // Delete all Event Sessions
-    router.delete("/:WIP/eventsessions/:id", [authenticate], eventsessions.deleteAll);
+    // router.delete("/:id", [authenticate], eventsessions.deleteAll);
 
-    app.use('/WIP/WIPS', router);
+    app.use('/eventsessions', router);
 };

@@ -19,7 +19,7 @@ module.exports = app => {
     router.delete("/:id", [authenticate], critique.delete);
   
     // Delete all critique
-    router.delete("/", [authenticate], critique.deleteAll);
+    // router.delete("/", [authenticate], critique.deleteAll);
   
-    app.use('//critique', router);
+    app.use('/critique', router);
   };

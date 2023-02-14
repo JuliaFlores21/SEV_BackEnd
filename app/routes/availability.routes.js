@@ -19,7 +19,7 @@ module.exports = app => {
     router.delete("/:id", [authenticate], availability.delete);
   
     // Delete all availability
-    router.delete("/", [authenticate], availability.deleteAll);
+    // router.delete("/", [authenticate], availability.deleteAll);
   
     app.use('/availability', router);
   };
