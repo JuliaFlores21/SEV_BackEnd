@@ -57,7 +57,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Retrieve all Lessons for a tutorial from the database.
+// Retrieve all Lessons for a tutorial from the database.  -------------------------> for a student?
 // exports.findAllForTutorial = (req, res) => {
 //   const tutorialId = req.params.tutorialId;
 
@@ -154,22 +154,6 @@ exports.deleteAll = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while removing all instruments."
-      });
-    });
-};
-
-// Find all published instruments
-exports.findAllPublished = (req, res) => {
-  const instrumentId = req.query.instrumentId;
-
-  Instrument.findAll({ where: { published: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving instruments."
       });
     });
 };

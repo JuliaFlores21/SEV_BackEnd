@@ -166,19 +166,3 @@
        });
      });
  };
- 
- // Find all published roles
- exports.findAllPublished = (req, res) => {
-   const roleId = req.query.roleId;
- 
-   Role.findAll({ where: { published: true } })
-     .then(data => {
-       res.send(data);
-     })
-     .catch(err => {
-       res.status(500).send({
-         message:
-           err.message || "Some error occurred while retrieving roles."
-       });
-     });
- };

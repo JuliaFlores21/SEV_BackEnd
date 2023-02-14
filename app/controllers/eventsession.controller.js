@@ -61,21 +61,21 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Retrieve all Lessons for a tutorial from the database.
-// exports.findAllForTutorial = (req, res) => {
-//   const tutorialId = req.params.tutorialId;
+// Retrieve all Event Sessions for an event from the database.
+exports.findAllForEvent = (req, res) => {
+   const eventId = req.params.eventId;
 
-//   Lesson.findAll({ where: { tutorialId : tutorialId } })
-//   .then(data => {
-//     res.send(data);
-//   })
-//   .catch(err => {
-//     res.status(500).send({
-//       message:
-//         err.message || "Some error occurred while retrieving lessons."
-//     });
-//   });
-// };
+   EventSession.findAll({ where: { eventId : eventId } })
+   .then(data => {
+     res.send(data);
+   })
+   .catch(err => {
+     res.status(500).send({
+       message:
+         err.message || "Some error occurred while retrieving event sessions."
+     });
+   });
+ };
 
 // Find a single Event Session with an id
 exports.findOne = (req, res) => {
@@ -158,22 +158,6 @@ exports.deleteAll = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while removing all event sessions."
-      });
-    });
-};
-
-// Find all published event sessions
-exports.findAllPublished = (req, res) => {
-  const eventSessionId = req.query.eventSessionId;
-
-  EventSession.findAll({ where: { published: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving event sessions."
       });
     });
 };

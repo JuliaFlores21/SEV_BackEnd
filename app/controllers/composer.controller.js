@@ -161,19 +161,3 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
-
-// Find all published composers
-exports.findAllPublished = (req, res) => {
-  const composersId = req.query.composerId;
-
-  Composer.findAll({ where: { published: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving composers."
-      });
-    });
-};

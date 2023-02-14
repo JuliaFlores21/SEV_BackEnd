@@ -35,7 +35,7 @@ exports.create = (req, res) => {
     diction: req.body.diction,
     dictionGrade: req.body.dictionGrade,
     performSuggest: req.body.performSuggest,
-    hasPassed: req.body.hasPassed,
+    hasPassed: req.body.hasPassed
   };
 
   // Save Critique in the database
@@ -72,7 +72,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Retrieve all Lessons for a tutorial from the database.
+// Retrieve all Critiques for a student from the database.           -------------> how is different from findAll?
 // exports.findAllForTutorial = (req, res) => {
 //   const tutorialId = req.params.tutorialId;
 
@@ -173,8 +173,8 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-// Find all published critiques
-exports.findAllPublished = (req, res) => {
+// Find all failed critiques -------------------------------------------------------------?
+/*exports.findAllPublished = (req, res) => {
   const critiqueId = req.query.critiqueId;
 
   Critique.findAll({ where: { published: true } })
@@ -187,4 +187,4 @@ exports.findAllPublished = (req, res) => {
           err.message || "Some error occurred while retrieving critiques."
       });
     });
-};
+};*/

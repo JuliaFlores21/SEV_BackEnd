@@ -18,6 +18,7 @@ exports.create = (req, res) => {
     id: req.body.id,
     repertoireId: req.body.repertoireId,
     songId: req.body.songId,
+    eventSessionId: req.body.eventSessionId
   };
 
   // Save Event Song in the database
@@ -54,21 +55,21 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Retrieve all Lessons for a tutorial from the database.
-// exports.findAllForTutorial = (req, res) => {
-//   const tutorialId = req.params.tutorialId;
+// Retrieve all Event Songs for an event from the database.
+ exports.findAllForEvent = (req, res) => {
+   const eventId = req.params.eventId;
 
-//   Lesson.findAll({ where: { tutorialId : tutorialId } })
-//   .then(data => {
-//     res.send(data);
-//   })
-//   .catch(err => {
-//     res.status(500).send({
-//       message:
-//         err.message || "Some error occurred while retrieving lessons."
-//     });
-//   });
-// };
+   EventSong.findAll({ where: { eventId : eventId } })
+   .then(data => {
+     res.send(data);
+   })
+   .catch(err => {
+     res.status(500).send({
+       message:
+         err.message || "Some error occurred while retrieving event songs."
+     });
+   });
+ };
 
 // Find a single Event Song with an id
 exports.findOne = (req, res) => {
@@ -151,22 +152,6 @@ exports.deleteAll = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while removing all event songs."
-      });
-    });
-};
-
-// Find all published event songs
-exports.findAllPublished = (req, res) => {
-  const eventSongId = req.query.eventSongId;
-
-  EventSong.findAll({ where: { published: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving event songs."
       });
     });
 };

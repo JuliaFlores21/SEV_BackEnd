@@ -18,7 +18,7 @@ exports.create = (req, res) =>
   // Create a Availability
   const availability = 
   {
-    id: req.body.id,
+    id: req.body.id, //when body and when params?
     facultyId: req.body.facultyId,
     accompanistId: req.body.accompanistId,
     eventId: req.body.eventId,
@@ -59,22 +59,6 @@ exports.findAll = (req, res) => {
       });
     });
 };
-
-// Retrieve all Lessons for a tutorial from the database.
-// exports.findAllForTutorial = (req, res) => {
-//   const tutorialId = req.params.tutorialId;
-
-//   Lesson.findAll({ where: { tutorialId : tutorialId } })
-//   .then(data => {
-//     res.send(data);
-//   })
-//   .catch(err => {
-//     res.status(500).send({
-//       message:
-//         err.message || "Some error occurred while retrieving lessons."
-//     });
-//   });
-// };
 
 // Find a single Availability with an id
 exports.findOne = (req, res) => {
@@ -157,22 +141,6 @@ exports.deleteAll = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while removing all availabilities."
-      });
-    });
-};
-
-// Find all published availabilities
-exports.findAllPublished = (req, res) => {
-  const availabilityId = req.query.availabilityId;
-
-  Availability.findAll({ where: { published: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving availabilities."
       });
     });
 };
