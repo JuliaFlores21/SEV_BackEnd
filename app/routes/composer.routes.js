@@ -6,7 +6,7 @@ module.exports = app => {
     // Create a new composer
     router.post("/", [authenticate], composer.create);
   
-    // Retrieve all availiability time 
+    // Retrieve all composer time 
     router.get("/", [authenticate], composer.findAll);
   
     // Retrieve a single composer with id

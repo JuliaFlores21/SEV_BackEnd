@@ -23,7 +23,7 @@ exports.create = (req, res) =>
     accompanistId: req.body.accompanistId,
     eventId: req.body.eventId,
     startTime: req.body.startTime,
-    endTime: req.body.endTime,
+    endTime: req.body.endTime
   };
 
   // Save Availability in the database

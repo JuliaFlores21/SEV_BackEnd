@@ -8,16 +8,6 @@ module.exports = (sequelize, Sequelize) =>
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
-      },
-      songId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull : false
-      },
-      eventSessionId:
-      {
-        type: Sequelize.INTEGER,
-        allowNull : false 
       }
     });
   

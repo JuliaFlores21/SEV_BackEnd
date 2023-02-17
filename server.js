@@ -29,11 +29,18 @@ app.get("/", (req, res) => {
 
 require("./app/routes/auth.routes.js")(app);
 require("./app/routes/user.routes")(app);
-require("./app/routes/tutorial.routes")(app);
-require("./app/routes/lesson.routes")(app);
+require("./app/routes/availability.routes")(app);
+require("./app/routes/composer.routes")(app);
+require("./app/routes/critique.routes")(app);
+require("./app/routes/event.routes")(app);
+require("./app/routes/eventsession.routes")(app);
+require("./app/routes/instrument.routes")(app);
+require("./app/routes/instrumentrole.routes")(app);
+require("./app/routes/role.routes")(app);
+require("./app/routes/song.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 3100;
+const PORT = process.env.PORT || 3024;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

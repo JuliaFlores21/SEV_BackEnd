@@ -7,11 +7,11 @@ module.exports = app => {
     // Create a new Event Sesion
     router.post("/", [authenticate], eventsessions.create);
 
-    // Retrieve all Event Sessions
-    router.get("/", [authenticate], eventsessions.findAllForTutorial);
+    // Retrieve all event sessions 
+    router.get("/", [authenticate], eventsessions.findAll);
 
-    // Retrieve all published Event Sessions
-    router.get("/published", [authenticate], eventsessions.findAllPublished);
+    // Retrieve all Event Sessions for Event
+    router.get("/", [authenticate], eventsessions.findAllForEvent); //how to do it?
 
     // Retrieve a single Event session with id
     router.get("/:id", [authenticate], eventsessions.findOne);

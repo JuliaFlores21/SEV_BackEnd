@@ -8,7 +8,10 @@ module.exports = app => {
     router.post("/", [authenticate], song.create);
 
     // Retrieve all songs
-    router.get("/", [authenticate], song.findAllForTutorial);
+    router.get("/", [authenticate], song.findAll);
+
+    // Retrieve all songs for students
+    router.get("/", [authenticate], song.findAllForStudent); //how to do it?
 
     // Retrieve a song id
     router.get("/:id", [authenticate], song.findOne);

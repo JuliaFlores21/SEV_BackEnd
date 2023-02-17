@@ -7,8 +7,8 @@ module.exports = app => {
     // Create a new Event
     router.post("/", [authenticate], event.create);
 
-    // Retrieve all Events
-    router.get("/", [authenticate], event.findAllForTutorial);
+    // Retrieve all events 
+    router.get("/", [authenticate], event.findAll);
 
     // Retrieve a single Event with id
     router.get("/:id", [authenticate], event.findOne);
@@ -20,7 +20,7 @@ module.exports = app => {
     router.delete("/:id", [authenticate], event.delete);
 
     // Delete all Events
-    router.delete("/:id", [authenticate], event.deleteAll);
+    //router.delete("/:id", [authenticate], event.deleteAll);
 
     app.use('/event', router);
 };

@@ -18,7 +18,7 @@ exports.create = (req, res) => {
     id: req.body.id,
     composerId: req.body.composerId,
     title: req.body.title,
-    studentId: req.body.studentId //should we put student id or role id?
+    studentId: req.body.studentId
   };
 
   // Save Event Song in the database

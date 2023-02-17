@@ -8,8 +8,8 @@ module.exports = app => {
     router.post("/", [authenticate], role.create);
 
     // Retrieve all roles
-    router.get("/", [authenticate], role.findAllForTutorial);
-
+    router.get("/", [authenticate], role.findAll);
+    
     // Retrieve a single role
     router.get("/:id", [authenticate], role.findOne);
 
