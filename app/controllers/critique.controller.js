@@ -18,7 +18,7 @@ exports.create = (req, res) => {
     id: req.body.id,
     studentId: req.body.studentId,
     facultyId: req.body.facultyId,
-    eventSessionId: req.body.eventSessionId,
+    eventsessionId: req.body.eventsessionId,
     date: req.body.date,
     deportment: req.body.deportment,
     deportmentGrade: req.body.deportmentGrade,

@@ -9,15 +9,9 @@ module.exports = (sequelize, Sequelize) =>
         autoIncrement: true,
         primaryKey: true
       },
-      songId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       firstName: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       lastName: 
       {
@@ -26,19 +20,16 @@ module.exports = (sequelize, Sequelize) =>
       },
       nationality: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       birthday: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       deathDate: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
+        type: Sequelize.STRING
+      }
     });
   
     return Composer;

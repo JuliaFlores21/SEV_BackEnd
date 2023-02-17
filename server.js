@@ -35,11 +35,12 @@ require("./app/routes/critique.routes")(app);
 require("./app/routes/event.routes")(app);
 require("./app/routes/eventsession.routes")(app);
 require("./app/routes/instrument.routes")(app);
+require("./app/routes/instrumentrole.routes")(app);
 require("./app/routes/role.routes")(app);
 require("./app/routes/song.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 3100;
+const PORT = process.env.PORT || 3024;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

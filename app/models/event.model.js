@@ -9,21 +9,6 @@ module.exports = (sequelize, Sequelize) =>
         autoIncrement: true,
         primaryKey: true
       },
-      eventSessionId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      facultyAvailabilityId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      accompanistAvailabilityId: //chwck
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       date: 
       {
         type: Sequelize.STRING,
@@ -63,7 +48,7 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.BOOLEAN,
         allowNull: false
-      },
+      }
     });
   
     return Event;

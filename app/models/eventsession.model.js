@@ -1,43 +1,13 @@
 
 module.exports = (sequelize, Sequelize) => 
 {
-    const EventSession = sequelize.define("eventSession", 
+    const EventSession = sequelize.define("eventsession", 
     {
       id: 
       {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
-      },
-      studentId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      instructorId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      accompanistId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      eventId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      critiqueId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false //check
-      },
-      eventSongId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false //check
       },
       startTime: 
       {
@@ -53,7 +23,7 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.STRING,
         allowNull: false
-      },
+      }
     });
   
     return EventSession;

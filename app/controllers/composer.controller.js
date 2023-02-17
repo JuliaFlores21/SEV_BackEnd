@@ -19,12 +19,11 @@ exports.create = (req, res) =>
   const composer = 
   {
     id: req.body.id,
-    songId: req.body.songId,
     firstName: req.body.firstName,
     lastname: req.body.lastName,
     nationality: req.body.nationality,
     birthday: req.body.birthday,
-    deathDate: req.body.deathDate,
+    deathDate: req.body.deathDate
   };
 
   // Save Composer in the database

@@ -9,76 +9,50 @@ module.exports = (sequelize, Sequelize) =>
         autoIncrement: true,
         primaryKey: true
       },
-      userId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       roleType: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       facultyType: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       accompanistType: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       studentId: 
       {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.INTEGER
       },
       studentClassification: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       studentSemester: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       studentMajor: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       studentInstrument: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       studentVocalType: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       studentLevel: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      studentPrivateInstructor: 
-      {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      studentAccompanist: 
-      {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       incomingStudentPassword: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
+        type: Sequelize.STRING
+      }
     });
   
     return Role;

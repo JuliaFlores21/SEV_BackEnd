@@ -16,9 +16,6 @@ exports.create = (req, res) => {
   // Create a Event
   const event = {
     id: req.body.id,
-    eventSessionId: req.body.eventSessionId,
-    facultyAvailabilityId: req.body.facultyAvailabilityId,
-    accompanistAvailabilityId: req.body.accompanistAvailabilityId,
     date: req.body.date,
     startTime: req.body.startTime,
     endTime: req.body.endTime,
@@ -26,7 +23,7 @@ exports.create = (req, res) => {
     isForeign: req.body.isForeign,
     translation: req.body.translation,
     capstoneLevel: req.body.capstoneLevel,
-    isReady: req.body.isReady,
+    isReady: req.body.isReady
   };
 
   // Save Event in the database

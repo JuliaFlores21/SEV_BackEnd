@@ -9,21 +9,6 @@ module.exports = (sequelize, Sequelize) =>
         autoIncrement: true,
         primaryKey: true
       },
-      studentId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      facultyId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      eventSessionId: 
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       date: 
       {
         type: Sequelize.STRING,
@@ -31,84 +16,68 @@ module.exports = (sequelize, Sequelize) =>
       },
       deportment: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       deportmentGrade: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       tone: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       toneGrade: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       accuracy: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       accuracyGrade: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       technique: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       techniqueGrade: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       interpretation: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       interpretationGrade: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       balance: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       balanceGrade: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       diction: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       dictionGrade: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       performSuggest: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       hasPassed: 
       {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
-      },
+        type: Sequelize.BOOLEAN
+      }
     });
   
     return Critique;

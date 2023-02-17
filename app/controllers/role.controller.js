@@ -18,7 +18,7 @@
      id: req.body.id,
      userId: req.body.userId,
      roleType: req.body.roleType,
-     faculty: req.body.faculty,
+     facultyType: req.body.faculty,
      accompanistType: req.body.accompanistType,
      studentId: req.body.studentId,
      studentClassification: req.body.studentClassification,
@@ -27,8 +27,6 @@
      studentInstrument: req.body.studentInstrument,
      studentVocalType: req.body.studentVocalType,
      studentLevel: req.body.studentLevel,
-     studentPrivateInstructor: req.body.studentPrivateInstructor,
-     studentAccompanist: req.body.studentAccompanist,
      incomingStudentPassword: req.body.incomingStudentPassword,
    };
  

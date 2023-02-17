@@ -19,7 +19,7 @@ module.exports = app => {
     // Delete a Instrument with id
     router.delete("/:id", [authenticate], instrument.delete);
 
-    // Delete all Event Songs
+    // Delete all Instrument
     // router.delete("/:id", [authenticate], instrument.deleteAll);
 
     app.use('/instrument', router); 

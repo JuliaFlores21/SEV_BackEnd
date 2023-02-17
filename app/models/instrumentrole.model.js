@@ -1,20 +1,15 @@
 
 module.exports = (sequelize, Sequelize) => 
 {
-    const Instrument = sequelize.define("instrument", 
+    const InstrumentRole = sequelize.define("instrumentrole", 
     {
       id: 
       {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
-      },
-      type: 
-      {
-        type: Sequelize.STRING,
-        allowNull: false
       }
     });
   
-    return Instrument;
+    return InstrumentRole;
 };
