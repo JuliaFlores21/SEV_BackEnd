@@ -17,6 +17,10 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.STRING
       },
+      facultyBio:
+      {
+        type: Sequelize.STRING
+      },
       accompanistType: 
       {
         type: Sequelize.STRING
