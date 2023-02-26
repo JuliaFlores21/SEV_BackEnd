@@ -20,7 +20,7 @@ exports.create = (req, res) =>
   {
     id: req.body.id,
     firstName: req.body.firstName,
-    lastname: req.body.lastName,
+    lastName: req.body.lastName,
     nationality: req.body.nationality,
     birthday: req.body.birthday,
     deathDate: req.body.deathDate
