@@ -44,6 +44,14 @@ module.exports = (sequelize, Sequelize) =>
       incomingStudentPassword: 
       {
         type: Sequelize.STRING
+      },
+      accompFirstName: 
+      {
+        type: Sequelize.STRING
+      },
+      accompLastName: 
+      {
+        type: Sequelize.STRING
       }
     });
   
