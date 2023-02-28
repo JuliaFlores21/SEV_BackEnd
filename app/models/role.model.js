@@ -31,7 +31,7 @@ module.exports = (sequelize, Sequelize) =>
       },
       studentSemester: 
       {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       studentMajor: 
       {
