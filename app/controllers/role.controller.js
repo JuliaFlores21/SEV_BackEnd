@@ -24,8 +24,6 @@
      studentClassification: req.body.studentClassification,
      studentSemester: req.body.studentSemester,
      studentMajor: req.body.studentMajor,
-     studentInstrument: req.body.studentInstrument,
-     studentVocalType: req.body.studentVocalType,
      studentLevel: req.body.studentLevel,
      incomingStudentPassword: req.body.incomingStudentPassword,
    };
