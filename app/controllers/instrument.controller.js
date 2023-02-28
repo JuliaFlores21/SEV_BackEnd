@@ -1,9 +1,9 @@
 
 const db = require("../models");
-const InstrumentRole = db.instrumentrole;
+const Instrument = db.instrument;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Instrument Role
+// Create and Save a new Instrument
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.title) {
@@ -13,17 +13,15 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Instrument Role
-  const instrumentrole = {
+  // Create a Instrument 
+  const instrument = {
     id: req.body.id,
-    studentId: req.body.studentId,
-    privateInstructorId: req.body.privateInstructorId,
-    accompanistId: req.body.accompanistId,
-    instrumentId: req.body.instrumentId
+    type: req.body.type,
+    isVoice: req.body.isVoice
   };
 
-  // Save Instrument Role in the database
-  InstrumentRole.create(instrumentrole)
+  // Save Instrument in the database
+  Instrument.create(instrument)
     .then(data => {
       res.send(data);
     })
@@ -37,14 +35,14 @@ exports.create = (req, res) => {
 
 // Retrieve all instrument roles from the database.
 exports.findAll = (req, res) => {
-  const instrumentRoleId = req.query.instrumentRoleId;
-  var condition = instrumentRoleId ? {
-    instrumentRoleId: {
-      [Op.like]: `%${instrumentRoleId}%`
+  const instrumentId = req.query.instrumentId;
+  var condition = instrumentId ? {
+    instrumentId: {
+      [Op.like]: `%${instrumentId}%`
     }
   } : null;
 
-  InstrumentRole.findAll({ where: condition })
+  Instrument.findAll({ where: condition })
     .then(data => {
       res.send(data);
     })
@@ -72,87 +70,87 @@ exports.findAll = (req, res) => {
 //   });
 // };
 
-// Find a single Instrument Role with an id
+// Find a single Instrument with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
-  InstrumentRole.findByPk(id)
+  Instrument.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Instrument Role with id=${id}.`
+          message: `Cannot find Instrument with id=${id}.`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Instrument Role with id=" + id
+        message: "Error retrieving Instrument with id=" + id
       });
     });
 };
 
-// Update a Instrument Role by the id in the request
+// Update a Instrument by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
-  InstrumentRole.update(req.body, {
+  Instrument.update(req.body, {
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Instrument Role was updated successfully."
+          message: "Instrument was updated successfully."
         });
       } else {
         res.send({
-          message: `Cannot update Instrument Role with id=${id}. Maybe Instrument Role was not found or req.body is empty!`
+          message: `Cannot update Instrument with id=${id}. Maybe Instrument was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Instrument Role with id=" + id
+        message: "Error updating Instrument with id=" + id
       });
     });
 };
 
-// Delete a Instrument Role with the specified id in the request
+// Delete a Instrument with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
-  InstrumentRole.destroy({
+  Instrument.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Instrument Role was deleted successfully!"
+          message: "Instrument was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Instrument Role with id=${id}. Maybe Instrument Role was not found!`
+          message: `Cannot delete Instrument with id=${id}. Maybe Instrument was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Instrument Role with id=" + id
+        message: "Could not delete Instrument with id=" + id
       });
     });
 };
 
-// Delete all Instrument Roles from the database.
+// Delete all Instruments from the database.
 exports.deleteAll = (req, res) => {
-  InstrumentRole.destroy({
+  Instrument.destroy({
     where: {},
     truncate: false
   })
     .then(nums => {
-      res.send({ message: `${nums} Instrument Roles were deleted successfully!` });
+      res.send({ message: `${nums} Instruments were deleted successfully!` });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all Instrument Roles."
+          err.message || "Some error occurred while removing all Instruments."
       });
     });
 };
