@@ -21,10 +21,6 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.STRING
       },
-      accompanistType: 
-      {
-        type: Sequelize.STRING
-      },
       studentId: 
       {
         type: Sequelize.INTEGER

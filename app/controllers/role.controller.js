@@ -20,7 +20,6 @@
      roleType: req.body.roleType,
      facultyType: req.body.facultyType,
      facultyBio: req.body.facultyBio,
-     accompanistType: req.body.accompanistType,
      studentId: req.body.studentId,
      studentClassification: req.body.studentClassification,
      studentSemester: req.body.studentSemester,
