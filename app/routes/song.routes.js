@@ -25,5 +25,5 @@ module.exports = app => {
     // Delete all song
    // router.delete("/:id", [authenticate], song.deleteAll);
 
-    app.use('/song', router); 
+    app.use('/performance-t4/song', router); 
 };

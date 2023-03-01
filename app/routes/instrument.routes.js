@@ -22,5 +22,5 @@ module.exports = app => {
     // Delete all Instrument
     // router.delete("/:id", [authenticate], instrument.deleteAll);
 
-    app.use('/instrument', router); 
+    app.use('/performance-t4/instrument', router); 
 };

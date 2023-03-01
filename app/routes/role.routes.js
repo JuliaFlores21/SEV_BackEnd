@@ -22,5 +22,5 @@ module.exports = app => {
     // Delete all roles
     // router.delete("/:id", [authenticate], role.deleteAll);
 
-    app.use('/role', router); 
+    app.use('/performance-t4/role', router); 
 };
