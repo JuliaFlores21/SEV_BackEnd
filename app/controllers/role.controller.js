@@ -25,9 +25,7 @@
      studentSemester: req.body.studentSemester,
      studentMajor: req.body.studentMajor,
      studentLevel: req.body.studentLevel,
-     incomingStudentPassword: req.body.incomingStudentPassword,
-     accompFirstName: req.body.accompFirstName,
-     accompLastName: req.body.accompLastName
+     incomingStudentPassword: req.body.incomingStudentPassword
    };
  
    // Save Role in the database
