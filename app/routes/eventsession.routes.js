@@ -25,5 +25,5 @@ module.exports = app => {
     // Delete all Event Sessions
     // router.delete("/:id", [authenticate], eventsessions.deleteAll);
 
-    app.use('/eventsessions', router);
+    app.use('/performance-t4/eventsessions', router);
 };

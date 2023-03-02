@@ -21,5 +21,5 @@ module.exports = app => {
     // Delete all composer
     // router.delete("/", [authenticate], composer.deleteAll);
   
-    app.use('/composer', router);
+    app.use('/performance-t4/composer', router);
   };

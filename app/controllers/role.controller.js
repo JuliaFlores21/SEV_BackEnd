@@ -20,15 +20,12 @@
      roleType: req.body.roleType,
      facultyType: req.body.facultyType,
      facultyBio: req.body.facultyBio,
-     accompanistType: req.body.accompanistType,
      studentId: req.body.studentId,
      studentClassification: req.body.studentClassification,
      studentSemester: req.body.studentSemester,
      studentMajor: req.body.studentMajor,
-     studentInstrument: req.body.studentInstrument,
-     studentVocalType: req.body.studentVocalType,
      studentLevel: req.body.studentLevel,
-     incomingStudentPassword: req.body.incomingStudentPassword,
+     incomingStudentPassword: req.body.incomingStudentPassword
    };
  
    // Save Role in the database

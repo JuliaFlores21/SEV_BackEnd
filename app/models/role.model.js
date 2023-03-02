@@ -21,10 +21,6 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.STRING
       },
-      accompanistType: 
-      {
-        type: Sequelize.STRING
-      },
       studentId: 
       {
         type: Sequelize.INTEGER
@@ -35,17 +31,9 @@ module.exports = (sequelize, Sequelize) =>
       },
       studentSemester: 
       {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       studentMajor: 
-      {
-        type: Sequelize.STRING
-      },
-      studentInstrument: 
-      {
-        type: Sequelize.STRING
-      },
-      studentVocalType: 
       {
         type: Sequelize.STRING
       },

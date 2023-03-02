@@ -22,5 +22,5 @@ module.exports = app => {
     // Delete all Events
     //router.delete("/:id", [authenticate], event.deleteAll);
 
-    app.use('/event', router);
+    app.use('/performance-t4/event', router);
 };

@@ -22,5 +22,5 @@ module.exports = app => {
     // Delete all Instrument Roles
     // router.delete("/:id", [authenticate], instrumentrole.deleteAll);
 
-    app.use('/instrumentrole', router); 
+    app.use('/performance-t4/instrumentrole', router); 
 };

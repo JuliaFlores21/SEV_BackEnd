@@ -13,6 +13,11 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      isVoice: 
+      {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
       }
     });
   
