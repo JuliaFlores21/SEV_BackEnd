@@ -20,8 +20,6 @@ exports.create = (req, res) => {
     startTime: req.body.startTime,
     endTime: req.body.endTime,
     duration: req.body.duration,
-    isForeign: req.body.isForeign,
-    translation: req.body.translation,
     capstoneLevel: req.body.capstoneLevel,
     isReady: req.body.isReady
   };
