@@ -21,9 +21,8 @@ exports.create = (req, res) => {
     accompanistId: req.body.accompanistId,
     eventId: req.body.eventId,
     startTime: req.body.startTime,
-    endTime: req.body.endTime,
-    eventType: req.body.eventType //here or in event?
-  };
+    endTime: req.body.endTime
+    };
 
   // Save Event Session in the database
   EventSession.create(eventsession)

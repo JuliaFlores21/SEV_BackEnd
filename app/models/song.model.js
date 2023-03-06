@@ -13,6 +13,16 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.STRING,
         allowNull : false
+      },
+      isForeign: 
+      {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+      },
+      translation: 
+      {
+        type: Sequelize.STRING,
+        allowNull: false
       }
     });
   
