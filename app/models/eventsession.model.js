@@ -18,11 +18,6 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.STRING,
         allowNull: false
-      },
-      eventType: 
-      {
-        type: Sequelize.STRING,
-        allowNull: false
       }
     });
   

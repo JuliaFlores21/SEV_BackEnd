@@ -20,7 +20,7 @@ exports.create = (req, res) => {
     startTime: req.body.startTime,
     endTime: req.body.endTime,
     duration: req.body.duration,
-    capstoneLevel: req.body.capstoneLevel,
+    eventType: req.body.eventType,
     isReady: req.body.isReady
   };
 
