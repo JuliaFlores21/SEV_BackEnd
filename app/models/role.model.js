@@ -44,7 +44,11 @@ module.exports = (sequelize, Sequelize) =>
       incomingStudentPassword: 
       {
         type: Sequelize.STRING
-      }
+      },
+      isApproved: 
+      {
+        type: Sequelize.BOOLEAN
+      },
     });
   
     return Role;
