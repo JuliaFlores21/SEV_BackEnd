@@ -8,6 +8,11 @@ module.exports = (sequelize, Sequelize) =>
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
+      },
+      semester:
+      {
+        type: Sequelize.INTEGER,
+        allowNull: false
       }
     });
   
