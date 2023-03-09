@@ -19,8 +19,7 @@ exports.create = (req, res) => {
     composerId: req.body.composerId,
     title: req.body.title,
     isForeign: req.body.isForeign,
-    translation: req.body.translation,
-    studentId: req.body.studentId
+    translation: req.body.translation
   };
 
   // Save Event Song in the database
@@ -56,22 +55,6 @@ exports.findAll = (req, res) => {
       });
     });
 };
-
-// Retrieve all Songs for a student from the database. 
- exports.findAllForStudent = (req, res) => {
-   const studentId = req.params.studentId;
-
-   Song.findAll({ where: { studentId : studentId } })
-   .then(data => {
-     res.send(data);
-   })
-   .catch(err => {
-     res.status(500).send({
-       message:
-         err.message || "Some error occurred while retrieving songs."
-     });
-   });
- };
 
 // Find a single Song with an id
 exports.findOne = (req, res) => {

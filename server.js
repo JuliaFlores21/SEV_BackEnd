@@ -36,6 +36,7 @@ require("./app/routes/event.routes")(app);
 require("./app/routes/eventsession.routes")(app);
 require("./app/routes/instrument.routes")(app);
 require("./app/routes/instrumentrole.routes")(app);
+require("./app/routes/repertoireSong.routes")(app);
 require("./app/routes/role.routes")(app);
 require("./app/routes/song.routes")(app);
 
