@@ -17,7 +17,8 @@ exports.create = (req, res) => {
   const repertoireSong = {
     id: req.body.id,
     songId: req.body.songId,
-    studentId: req.body.studentId
+    studentId: req.body.studentId,
+    semester: req.body.semester
   };
 
   // Save RepertoireSong in the database
