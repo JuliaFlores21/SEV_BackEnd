@@ -41,12 +41,12 @@ db.role.belongsTo(db.user, { as: 'user'}, { foreignKey: { allowNull: false }, on
 
 //Instrument Role Table:
 // foreign key for role
-db.role.hasMany(db.instrumentrole, { as: 'student'}, { foreignKey: { name: 'studentId', allowNull: false }, onDelete: 'CASCADE' });
-db.role.hasMany(db.instrumentrole, { as: 'privateInstructor'}, { foreignKey:  { name: 'privateInstructorId', allowNull: false }, onDelete: 'CASCADE' });
-db.role.hasMany(db.instrumentrole, { as: 'accompanist'}, { foreignKey: { name: 'accompanistId', allowNull: false }, onDelete: 'CASCADE' });
-db.instrumentrole.belongsTo(db.role, {as: 'student'}, { foreignKey: { name: 'studentId', allowNull: false }, onDelete: 'CASCADE', });
-db.instrumentrole.belongsTo(db.role, { as: 'privateInstructor'}, { foreignKey: { name: 'privateInstructorId', allowNull: false }, onDelete: 'CASCADE', });
-db.instrumentrole.belongsTo(db.role, { as: 'accompanist'}, { foreignKey: { name: 'accompanistId', allowNull: false }, onDelete: 'CASCADE', });
+db.role.hasMany(db.instrumentrole, { foreignKey: { name: 'studentId', allowNull: false}, onDelete: 'CASCADE' });
+db.role.hasMany(db.instrumentrole, { foreignKey:  { name: 'privateInstructorId', allowNull: false}, onDelete: 'CASCADE' });
+db.role.hasMany(db.instrumentrole, { foreignKey: { name: 'accompanistId', allowNull: false}, onDelete: 'CASCADE' });
+db.instrumentrole.belongsTo(db.role, { foreignKey: { name: 'studentId', allowNull: false}, onDelete: 'CASCADE', });
+db.instrumentrole.belongsTo(db.role, { foreignKey: { name: 'privateInstructorId', allowNull: false}, onDelete: 'CASCADE', });
+db.instrumentrole.belongsTo(db.role, { foreignKey: { name: 'accompanistId', allowNull: false}, onDelete: 'CASCADE', });
 
 // foreign key for instrument
 db.instrument.hasMany(db.instrumentrole, { as: 'instrumentrole'}, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
@@ -54,9 +54,10 @@ db.instrumentrole.belongsTo(db.instrument, { as: 'instrument'}, { foreignKey: { 
 
 //Availability Table:
 // foreign key for availability and role
-db.role.hasMany(db.availability, { as: 'availability' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-db.availability.belongsTo(db.role, { as: 'faculty' }, { onDelete: 'CASCADE' });
-db.availability.belongsTo(db.role, { as: 'accompanist' }, {onDelete: 'CASCADE' });
+db.role.hasMany(db.availability, { foreignKey: { name: 'accompanistId'}, onDelete: 'CASCADE' });
+db.role.hasMany(db.availability, { foreignKey: { name: 'facultyId'}, onDelete: 'CASCADE' });
+db.availability.belongsTo(db.role, { foreignKey: { name: 'accompanistId'}, onDelete: 'CASCADE' });
+db.availability.belongsTo(db.role, {foreignKey: { name: 'facultyId'}, onDelete: 'CASCADE' });
 
 
 // foreign key for availability and event
@@ -69,10 +70,12 @@ db.event.hasMany(db.eventsession, { as: 'eventsession' }, { foreignKey: { allowN
 db.eventsession.belongsTo(db.event, { as: 'event' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
 
 // foreign key for event session and role
-db.role.hasMany(db.eventsession, { as: 'eventsession' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-db.eventsession.belongsTo(db.role, { as: 'student' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-db.eventsession.belongsTo(db.role, { as: 'privateInstructor' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-db.eventsession.belongsTo(db.role, { as: 'accompanist' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+db.role.hasMany(db.eventsession, { foreignKey: { name: 'privateInstructorId', allowNull: false }, onDelete: 'CASCADE' });
+db.role.hasMany(db.eventsession, { foreignKey: { name: 'accompanistId', allowNull: false }, onDelete: 'CASCADE' });
+db.role.hasMany(db.eventsession, { foreignKey: { name: 'studentId', allowNull: false }, onDelete: 'CASCADE' });
+db.eventsession.belongsTo(db.role, { foreignKey: { name: 'privateInstructorId', allowNull: false }, onDelete: 'CASCADE' });
+db.eventsession.belongsTo(db.role, { foreignKey: { name: 'accompanistId', allowNull: false }, onDelete: 'CASCADE' });
+db.eventsession.belongsTo(db.role, { foreignKey: { name: 'studentId', allowNull: false }, onDelete: 'CASCADE' });
 
 //Critique Table:
 // foreign key for event session and critique
@@ -80,9 +83,10 @@ db.eventsession.hasMany(db.critique, { as: 'critique' }, { foreignKey: { allowNu
 db.critique.belongsTo(db.eventsession, { as: 'eventsession' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
 
 // foreign key for role and critique
-db.role.hasMany(db.critique, { as: 'critique' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-db.critique.belongsTo(db.role, { as: 'student' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-db.critique.belongsTo(db.role, { as: 'faculty' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+db.role.hasMany(db.critique, { foreignKey: { name: 'studentId', allowNull: false }, onDelete: 'CASCADE' });
+db.role.hasMany(db.critique, { foreignKey: { name: 'facultyId', allowNull: false }, onDelete: 'CASCADE' });
+db.critique.belongsTo(db.role, { foreignKey: { name: 'studentId', allowNull: false }, onDelete: 'CASCADE' });
+db.critique.belongsTo(db.role, { foreignKey: { name: 'facultyId', allowNull: false }, onDelete: 'CASCADE' });
 
 //Event Song Table:
 // foreign key for event session and event song
@@ -95,8 +99,8 @@ db.eventsong.belongsTo(db.repertoireSong, { as: 'repertoireSong' }, { foreignKey
 
 //Repertoire Song Table:
 // foreign key for repertoire song and role (student)
-db.role.hasMany(db.repertoireSong, { as: 'repertoireSong' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
-db.repertoireSong.belongsTo(db.role, { as: 'student' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+db.role.hasMany(db.repertoireSong, { foreignKey: {name: 'studentId', allowNull: false }, onDelete: 'CASCADE' });
+db.repertoireSong.belongsTo(db.role, { foreignKey: { name: 'studentId', allowNull: false }, onDelete: 'CASCADE' });
 
 // foreign key for repertoire song and event song
 db.song.hasMany(db.repertoireSong, { as: 'repertoireSong' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
