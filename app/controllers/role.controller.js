@@ -25,7 +25,8 @@
      studentSemester: req.body.studentSemester,
      studentMajor: req.body.studentMajor,
      studentLevel: req.body.studentLevel,
-     incomingStudentPassword: req.body.incomingStudentPassword
+     incomingStudentPassword: req.body.incomingStudentPassword,
+     isApproved: req.body.isApproved
    };
  
    // Save Role in the database
