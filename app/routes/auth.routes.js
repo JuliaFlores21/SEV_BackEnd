@@ -12,5 +12,5 @@ module.exports = app => {
     // Logout
     router.post("logout" ,auth.logout);
 
-    app.use('/performance-t4', router);
+    app.use('/performance-t4/', router);
 };
