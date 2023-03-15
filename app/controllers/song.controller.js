@@ -18,7 +18,7 @@ exports.create = (req, res) => {
     id: req.body.id,
     composerId: req.body.composerId,
     title: req.body.title,
-    isForeign: req.body.isForeign,
+    language: req.body.language,
     translation: req.body.translation
   };
 
