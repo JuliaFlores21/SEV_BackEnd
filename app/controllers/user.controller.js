@@ -17,8 +17,8 @@ exports.create = (req, res) => {
     const user = {
       id: req.body.id,
       email: req.body.email,
-      fName: req.body.fName,
-      lName: req.body.lName
+      firstName: req.body.fName,
+      lastName: req.body.lName
       // refresh_token: req.body.refresh_token,
       // expiration_date: req.body.expiration_date
     };
