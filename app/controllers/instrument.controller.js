@@ -5,17 +5,17 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Instrument
 exports.create = (req, res) => {
+
   // Validate request
-  if (!req.body.title) {
+  if (!req.body.type && !req.body.isVoice ) {
     res.status(400).send({
-      message: "Content can not be empty!"
+      message: "Instrument and Voice cannot be empty!"
     });
     return;
   }
 
   // Create a Instrument 
   const instrument = {
-    id: req.body.id,
     type: req.body.type,
     isVoice: req.body.isVoice
   };

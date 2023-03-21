@@ -7,18 +7,17 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => 
 {
   // Validate request
-  if (!req.body.title) 
-  {
-    res.status(400).send({
-      message: "Content can not be empty!"
-    });
-    return;
+  if (!req.body.lastName) 
+   {
+     res.status(400).send({
+       message: "Last Name cannot be empty!"
+     });
+     return;
   }
 
   // Create a Composer
   const composer = 
   {
-    id: req.body.id,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     nationality: req.body.nationality,
