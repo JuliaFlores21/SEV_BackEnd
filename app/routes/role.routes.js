@@ -9,6 +9,9 @@ module.exports = app => {
 
     // Retrieve all roles
     router.get("/", [authenticate], role.findAll);
+
+    // Retrieve a Role for user
+    router.get("/userPerf/:userId", [authenticate], role.getRoleForUser);
     
     // Retrieve a single role
     router.get("/:id", [authenticate], role.findOne);

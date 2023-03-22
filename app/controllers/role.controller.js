@@ -63,23 +63,28 @@
      });
  };
  
- // Retrieve all Lessons for a tutorial from the database.
- // exports.findAllForTutorial = (req, res) => {
- //   const tutorialId = req.params.tutorialId;
- 
- //   Lesson.findAll({ where: { tutorialId : tutorialId } })
- //   .then(data => {
- //     res.send(data);
- //   })
- //   .catch(err => {
- //     res.status(500).send({
- //       message:
- //         err.message || "Some error occurred while retrieving lessons."
- //     });
- //   });
- // };
- 
- // Find a single Role with an id
+// Retrieve Role for a user from the database. 
+exports.getRoleForUser = (req, res) => {
+  const userId = req.params.userId;
+  Role.findAll({ where: { userId: userId } })
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find Repertoire Songs for user with id=${userId}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message ||
+          "Error retrieving Repertoire Songs for user with id=" + userId,
+      });
+    });
+};
+
  exports.findOne = (req, res) => {
    const id = req.params.id;
    Role.findByPk(id)

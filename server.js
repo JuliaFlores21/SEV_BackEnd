@@ -36,6 +36,7 @@ require("./app/routes/event.routes")(app);
 require("./app/routes/eventsession.routes")(app);
 require("./app/routes/instrument.routes")(app);
 require("./app/routes/instrumentrole.routes")(app);
+require("./app/routes/level.routes")(app);
 require("./app/routes/repertoireSong.routes")(app);
 require("./app/routes/role.routes")(app);
 require("./app/routes/song.routes")(app);
@@ -45,3 +46,5 @@ const PORT = process.env.PORT || 3024;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+
+module.exports = app;
