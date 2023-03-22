@@ -37,10 +37,6 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.STRING
       },
-      studentLevel: 
-      {
-        type: Sequelize.STRING
-      },
       incomingStudentPassword: 
       {
         type: Sequelize.STRING
