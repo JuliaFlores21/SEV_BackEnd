@@ -1,3 +1,4 @@
+
 const db = require("../models");
 const authconfig = require("../config/auth.config");
 const User = db.user;
@@ -16,7 +17,7 @@ exports.login = async (req, res) => {
 
     var googleToken = req.body.credential;
 
-    const {OAuth2Client} = require('google-auth-library');
+    const {OAuth2Client} = require("google-auth-library");
     const client = new OAuth2Client(google_id);
     async function verify() {
         const ticket = await client.verifyIdToken({
@@ -60,12 +61,12 @@ exports.login = async (req, res) => {
 
     // this lets us get the user id
     if (user.id === undefined) {
-        console.log("need to get user's id")
-        console.log(user)
+        console.log("need to get user's id");
+        console.log(user);
         await User.create(user)
         .then(data => {
             console.log("user was registered")
-            user = data.dataValues
+            user = data.dataValues;
             // res.send({ message: "User was registered successfully!" });
         })
         .catch(err => {
@@ -77,7 +78,7 @@ exports.login = async (req, res) => {
         // doing this to ensure that the user's name is the one listed with Google
         user.fName = firstName;
         user.lName = lastName;
-        console.log(user)
+        console.log(user);
         await User.update(user, { where: { id: user.id } })
         .then(num => {
             if (num == 1) {
@@ -115,7 +116,7 @@ exports.login = async (req, res) => {
             // refresh_token: user.refresh_token,
             // expiration_date: user.expiration_date
         }
-        console.log(userInfo)
+        console.log(userInfo);
         res.send(userInfo);
     })
     .catch(err => {

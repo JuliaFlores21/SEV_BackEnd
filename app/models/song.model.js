@@ -14,9 +14,9 @@ module.exports = (sequelize, Sequelize) =>
         type: Sequelize.STRING,
         allowNull : false
       },
-      isForeign: 
+      language: 
       {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.STRING,
         allowNull: false
       },
       translation: 
