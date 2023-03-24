@@ -72,7 +72,7 @@ exports.getRoleForUser = (req, res) => {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Repertoire Songs for user with id=${userId}.`,
+          message: `Cannot find Role for user with id=${userId}.`,
         });
       }
     })
@@ -80,7 +80,7 @@ exports.getRoleForUser = (req, res) => {
       res.status(500).send({
         message:
           err.message ||
-          "Error retrieving Repertoire Songs for user with id=" + userId,
+          "Error retrieving Role for user with id=" + userId,
       });
     });
 };
