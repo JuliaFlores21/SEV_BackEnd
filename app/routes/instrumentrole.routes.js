@@ -10,6 +10,9 @@ module.exports = app => {
     // Retrieve all Instrument Role
     router.get("/", [authenticate], instrumentrole.findAll);
 
+    // Retrieve all Instrument Role for user
+    router.get("/userPerf/:studentId", [authenticate], instrumentrole.findAllForUser);
+
     // Retrieve a single Instrument Role with id
     router.get("/:id", [authenticate], instrumentrole.findOne);
 

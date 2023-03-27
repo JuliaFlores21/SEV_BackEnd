@@ -1,25 +1,15 @@
 
 const db = require("../models");
 const InstrumentRole = db.instrumentrole;
+const Instrument = db.instrument;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Instrument Role
 exports.create = (req, res) => {
-  // Validate request
-  if (!req.body.isVoice) {
-    res.status(400).send({
-      message: "Content can not be empty!"
-    });
-    return;
-  }
 
   // Create a Instrument Role
   const instrumentrole = {
-    id: req.body.id,
-    studentId: req.body.studentId,
-    privateInstructorId: req.body.privateInstructorId,
-    accompanistId: req.body.accompanistId,
-    instrumentId: req.body.instrumentId
+
   };
 
   // Save Instrument Role in the database
@@ -37,9 +27,9 @@ exports.create = (req, res) => {
 
 // Retrieve all instrument roles from the database.
 exports.findAll = (req, res) => {
-  const instrumentRoleId = req.query.instrumentRoleId;
+  const instrumentRoleId = req.query.instrumentroleId;
   var condition = instrumentRoleId ? {
-    instrumentRoleId: {
+    instrumentroleId: {
       [Op.like]: `%${instrumentRoleId}%`
     }
   } : null;
@@ -52,6 +42,30 @@ exports.findAll = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while retrieving instrument role."
+      });
+    });
+};
+
+// Find all instrument roles from the database for an user
+exports.findAllForUser = (req, res) => {
+  const userId = req.params.studentId;
+  InstrumentRole.findAll({ where: { studentId: userId },
+     include:[{model: Instrument, as: "instrument", required: true}] 
+    })
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find Instrument Roles for user with id=${userId}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message ||
+          "Error retrieving Instrument Roles for user with id=" + userId,
       });
     });
 };

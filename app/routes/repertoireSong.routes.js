@@ -11,7 +11,7 @@ module.exports = app => {
     router.get("/", [authenticate], repertoireSong.findAll);
 
     // Retrieve all repertoire songs for students
-    router.get("/", [authenticate], repertoireSong.findAllForStudent); //how to do it?
+    router.get("/userPerf/:studentId", [authenticate], repertoireSong.findAllForUser); 
 
     // Retrieve a repertoireSong id
     router.get("/:id", [authenticate], repertoireSong.findOne);

@@ -16,13 +16,11 @@ module.exports = (sequelize, Sequelize) =>
       },
       language: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       translation: 
       {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       }
     });
   

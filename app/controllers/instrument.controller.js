@@ -7,7 +7,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
 
   // Validate request
-  if (!req.body.type && !req.body.isVoice ) {
+  if (!req.body.type) {
     res.status(400).send({
       message: "Instrument and Voice cannot be empty!"
     });

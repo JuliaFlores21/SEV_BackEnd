@@ -1,4 +1,3 @@
-
 const db = require("../models");
 const Level = db.level;
 const Op = db.Sequelize.Op;
