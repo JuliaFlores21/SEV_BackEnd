@@ -7,10 +7,10 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => 
 {
   // Validate request
-  if (!req.body.level) 
+  if (!req.body.levelNumber && !req.body.oneHourDescription && !req.body.twoHourDescription) 
   {
     res.status(400).send({
-      message: "Level can not be empty!"
+      message: "Content cannot be empty!"
     });
     return;
   }
