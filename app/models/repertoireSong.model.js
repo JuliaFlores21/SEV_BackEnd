@@ -11,7 +11,7 @@ module.exports = (sequelize, Sequelize) =>
       },
       semester:
       {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       }
     });

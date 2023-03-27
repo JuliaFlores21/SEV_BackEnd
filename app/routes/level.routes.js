@@ -1,4 +1,3 @@
-
 module.exports = app => {
     const level = require("../controllers/level.controller.js");
     const { authenticate } = require("../authorization/authorization.js");

@@ -68,6 +68,9 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
+# aws.pem
+.aws.pem
+
 # dotenv environment variables file
 .env
 .env.test
