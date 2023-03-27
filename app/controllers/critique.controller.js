@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Critique
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
+  if (!req.body.date) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -15,10 +15,6 @@ exports.create = (req, res) => {
 
   // Create a Critique
   const critique = {
-    id: req.body.id,
-    studentId: req.body.studentId,
-    facultyId: req.body.facultyId,
-    eventsessionId: req.body.eventsessionId,
     date: req.body.date,
     deportment: req.body.deportment,
     deportmentGrade: req.body.deportmentGrade,
