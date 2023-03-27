@@ -6,7 +6,7 @@
  // Create and Save a Role
  exports.create = (req, res) => {
    // Validate request
-   if (!req.body.title) {
+   if (!req.body.roleType) {
      res.status(400).send({
        message: "Content can not be empty!"
      });
@@ -15,8 +15,6 @@
  
    // Create a Role
    const role = {
-     id: req.body.id,
-     userId: req.body.userId,
      roleType: req.body.roleType,
      facultyType: req.body.facultyType,
      facultyBio: req.body.facultyBio,
@@ -25,7 +23,8 @@
      studentSemester: req.body.studentSemester,
      studentMajor: req.body.studentMajor,
      incomingStudentPassword: req.body.incomingStudentPassword,
-     isApproved: req.body.isApproved
+     isApproved: req.body.isApproved,
+     userId: req.body.userId,
    };
  
    // Save Role in the database
@@ -62,6 +61,7 @@
      });
  };
  
+ /*
 // Retrieve Role for a user from the database. 
 exports.getRoleForUser = (req, res) => {
   const userId = req.params.userId;
@@ -82,7 +82,7 @@ exports.getRoleForUser = (req, res) => {
           "Error retrieving Repertoire Songs for user with id=" + userId,
       });
     });
-};
+};*/
  
  // Find a single Role with an id
  exports.findOne = (req, res) => {
