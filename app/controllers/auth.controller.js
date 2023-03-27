@@ -1,3 +1,4 @@
+
 const db = require("../models");
 const authconfig = require("../config/auth.config");
 const User = db.user;

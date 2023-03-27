@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize) =>
         type: Sequelize.STRING,
         allowNull: false
       },
-      OneHourDescription: 
+      oneHourDescription: 
       {
         type: Sequelize.STRING
       },

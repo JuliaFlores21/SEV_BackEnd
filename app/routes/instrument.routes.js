@@ -5,22 +5,22 @@ module.exports = app => {
     var router = require("express").Router();
 
     // Create a new Instrument
-    router.post("/", [authenticate], instrument.create);
+    router.post("/", [], instrument.create);
 
     // Retrieve all Instrument
-    router.get("/", [authenticate], instrument.findAll);
+    router.get("/", [], instrument.findAll);
 
     // Retrieve a single Instrument with id
-    router.get("/:id", [authenticate], instrument.findOne);
+    router.get("/:id", [], instrument.findOne);
 
     // Update a Instrument with id
-    router.put("/:id", [authenticate], instrument.update);
+    router.put("/:id", [], instrument.update);
 
     // Delete a Instrument with id
-    router.delete("/:id", [authenticate], instrument.delete);
+    router.delete("/:id", [], instrument.delete);
 
     // Delete all Instrument
-    // router.delete("/:id", [authenticate], instrument.deleteAll);
+    // router.delete("/:id", [], instrument.deleteAll);
 
     app.use('/performance-t4/instrument', router); 
 };

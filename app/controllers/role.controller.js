@@ -1,4 +1,3 @@
-
 const db = require("../models");
 const Role = db.role;
 const User = db.user;

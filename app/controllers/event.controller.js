@@ -6,7 +6,8 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Event
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.date) {
+
+  if (!req.body.eventType || !req.body.date) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
