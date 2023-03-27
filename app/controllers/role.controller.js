@@ -1,5 +1,6 @@
  const db = require("../models");
  const Role = db.role;
+ const User = db.user;
  const Op = db.Sequelize.Op;
  
  // Create and Save a Role
