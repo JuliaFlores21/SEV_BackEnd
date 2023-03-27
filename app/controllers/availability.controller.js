@@ -7,10 +7,10 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => 
 {
   // Validate request
-  if (!req.body.title) 
+  if (!req.body.startTime && !req.body.endTime) 
   {
     res.status(400).send({
-      message: "Content can not be empty!"
+      message: "Start Time and End Time can not be empty!"
     });
     return;
   }
@@ -18,7 +18,6 @@ exports.create = (req, res) =>
   // Create a Availability
   const availability = 
   {
-    id: req.body.id, //when body and when params?
     facultyId: req.body.facultyId,
     accompanistId: req.body.accompanistId,
     eventId: req.body.eventId,

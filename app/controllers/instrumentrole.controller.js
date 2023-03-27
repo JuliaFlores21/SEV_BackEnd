@@ -6,21 +6,11 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Instrument Role
 exports.create = (req, res) => {
-  // Validate request
-  if (!req.body.title) {
-    res.status(400).send({
-      message: "Content can not be empty!"
-    });
-    return;
-  }
+
 
   // Create a Instrument Role
   const instrumentrole = {
-    id: req.body.id,
-    studentId: req.body.studentId,
-    privateInstructorId: req.body.privateInstructorId,
-    accompanistId: req.body.accompanistId,
-    instrumentId: req.body.instrumentId
+
   };
 
   // Save Instrument Role in the database

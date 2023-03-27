@@ -15,8 +15,6 @@ exports.create = (req, res) => {
 
   // Create a Song
   const song = {
-    id: req.body.id,
-    composerId: req.body.composerId,
     title: req.body.title,
     language: req.body.language,
     translation: req.body.translation
