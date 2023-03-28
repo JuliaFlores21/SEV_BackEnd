@@ -53,6 +53,41 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Retrieve all Event Sessions for a user from the database.
+exports.findAllForRole = (req, res) => {
+  const eventId = req.params.eventId;
+  let roleVariable="";
+  let role = req.body;
+
+  if (role.roleType == 'Student'){
+    roleVariable='studentId'
+  }
+  if (role.roleType == 'Faculty'){
+    roleVariable='privateInstructorId'
+  }
+  if (role.roleType == 'Student'){
+    roleVariable='accompanistId'
+  }
+
+  EventSession.findAll({ where: { roleVariable : role.id } })
+  .then((data) => {
+   if (data) {
+     res.send(data);
+   } else {
+     res.status(404).send({
+       message: `Cannot find Role for user with id=${role.id}.`,
+     });
+   }
+ })
+ .catch((err) => {
+   res.status(500).send({
+     message:
+       err.message ||
+       "Error retrieving Role for user with id=" + eventId,
+   });
+ });
+};
+
 // Retrieve all Event Sessions for an event from the database.
 exports.findAllForEvent = (req, res) => {
    const eventId = req.params.eventId;
