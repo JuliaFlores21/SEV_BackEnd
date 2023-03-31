@@ -17,7 +17,8 @@ exports.create = (req, res) => {
   const song = {
     title: req.body.title,
     language: req.body.language,
-    translation: req.body.translation
+    translation: req.body.translation,
+    composerId: req.body.composerId
   };
 
   // Save Event Song in the database
