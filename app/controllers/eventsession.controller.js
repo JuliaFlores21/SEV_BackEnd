@@ -1,6 +1,7 @@
 
 const db = require("../models");
 const EventSession = db.eventsession;
+const Event = db.event;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Event Session
@@ -16,7 +17,11 @@ exports.create = (req, res) => {
   // Create a Event Session
   const eventsession = {
     startTime: req.body.startTime,
-    endTime: req.body.endTime
+    endTime: req.body.endTime,
+    eventId: req.body.eventId,
+    studentId: req.body.studentId,
+    accompanistId: req.body.accompanistId,
+    privateInstructorId: req.body.privateInstructorId
     };
 
   // Save Event Session in the database
@@ -51,6 +56,41 @@ exports.findAll = (req, res) => {
           err.message || "Some error occurred while retrieving event sessions."
       });
     });
+};
+
+// Retrieve all Event Sessions for a user from the database.
+exports.findAllForRole = (req, res) => {
+  let roleVariable="";
+  let role = req.body;
+
+  if (role.roleType == 'Student'){
+    roleVariable='studentId'
+  }
+  if (role.roleType == 'Faculty'){
+    roleVariable='privateInstructorId'
+  }
+  if (role.roleType == 'Accompanist'){
+    roleVariable='accompanistId'
+  }
+
+  EventSession.findAll({ where: { [roleVariable] : role.id },
+    include:[{model: Event, as: "event", required: true}] })
+  .then((data) => {
+   if (data) {
+     res.send(data);
+   } else {
+     res.status(404).send({
+       message: `Cannot find Role for user with id=${role.id}.`,
+     });
+   }
+ })
+ .catch((err) => {
+   res.status(500).send({
+     message:
+       err.message ||
+       "Error retrieving Role for user with id=" + eventId,
+   });
+ });
 };
 
 // Retrieve all Event Sessions for an event from the database.

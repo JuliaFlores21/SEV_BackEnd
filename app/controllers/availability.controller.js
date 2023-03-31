@@ -59,6 +59,30 @@ exports.findAll = (req, res) => {
     });
 };
 
+// // Find all availabilities from the database for a user
+// exports.findAllForUser = (req, res) => {
+//   const userId = req.params.userId; //which variable should be here? how to pre define userId?
+//   InstrumentRole.findAll({ where: { userId: userId },
+//      include:[{model: Instrument, as: "instrument", required: true}] 
+//     })
+//     .then((data) => {
+//       if (data) {
+//         res.send(data);
+//       } else {
+//         res.status(404).send({
+//           message: `Cannot find Instrument Roles for user with id=${userId}.`,
+//         });
+//       }
+//     })
+//     .catch((err) => {
+//       res.status(500).send({
+//         message:
+//           err.message ||
+//           "Error retrieving Instrument Roles for user with id=" + userId,
+//       });
+//     });
+// };
+
 // Find a single Availability with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;

@@ -9,7 +9,9 @@ exports.create = (req, res) => {
 
   // Create a Instrument Role
   const instrumentrole = {
-
+    studentId: req.body.studentId,
+    instructorId: req.body.instructorId,
+    accompanistId: req.body.accompanistId
   };
 
   // Save Instrument Role in the database

@@ -37,6 +37,10 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.STRING
       },
+      studentPrivateHours:
+      {
+        type: Sequelize.INTEGER
+      },
       incomingStudentPassword: 
       {
         type: Sequelize.STRING

@@ -25,6 +25,7 @@ exports.create = (req, res) => {
     studentSemester: req.body.studentSemester,
     studentMajor: req.body.studentMajor,
     studentLevel: req.body.studentLevel,
+    studentPrivateHours: req.body.studentPrivateHours,
     incomingStudentPassword: req.body.incomingStudentPassword,
     isApproved: req.body.isApproved
   };
