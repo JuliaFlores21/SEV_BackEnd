@@ -1,67 +1,68 @@
- const db = require("../models");
- const Role = db.role;
- const User = db.user;
- const Op = db.Sequelize.Op;
- 
- // Create and Save a Role
- exports.create = (req, res) => {
-   // Validate request
-   if (!req.body.roleType) {
-     res.status(400).send({
-       message: "Content can not be empty!"
-     });
-     return;
-   }
- 
-   // Create a Role
-   const role = {
-     roleType: req.body.roleType,
-     facultyType: req.body.facultyType,
-     facultyBio: req.body.facultyBio,
-     studentId: req.body.studentId,
-     studentClassification: req.body.studentClassification,
-     studentSemester: req.body.studentSemester,
-     studentMajor: req.body.studentMajor,
-     incomingStudentPassword: req.body.incomingStudentPassword,
-     isApproved: req.body.isApproved,
-     userId: req.body.userId,
-     studentLevel: req.body.studentLevel
-   };
- 
-   // Save Role in the database
-   Role.create(role)
-     .then(data => {
-       res.send(data);
-     })
-     .catch(err => {
-       res.status(500).send({
-         message:
-           err.message || "Some error occurred while creating the role."
-       });
-     });
- };
- 
- // Retrieve all roles from the database.
- exports.findAll = (req, res) => {
-   const roleId = req.query.roleId;
-   var condition = roleId ? {
-     roleId: {
-       [Op.like]: `%${roleId}%`
-     }
-   } : null;
- 
-   Role.findAll({ where: condition })
-     .then(data => {
-       res.send(data);
-     })
-     .catch(err => {
-       res.status(500).send({
-         message:
-           err.message || "Some error occurred while retrieving roles."
-       });
-     });
- };
- 
+const db = require("../models");
+const Role = db.role;
+const User = db.user;
+const Op = db.Sequelize.Op;
+
+
+// Create and Save a Role
+exports.create = (req, res) => {
+  // Validate request
+  if (!req.body.roleType) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+    return;
+  }
+
+  // Create a Role
+  const role = {
+    roleType: req.body.roleType,
+    facultyType: req.body.facultyType,
+    facultyBio: req.body.facultyBio,
+    studentId: req.body.studentId,
+    studentClassification: req.body.studentClassification,
+    studentSemester: req.body.studentSemester,
+    studentMajor: req.body.studentMajor,
+    studentLevel: req.body.studentLevel,
+    studentPrivateHours: req.body.studentPrivateHours,
+    incomingStudentPassword: req.body.incomingStudentPassword,
+    isApproved: req.body.isApproved
+    userId: req.body.userId,
+  };
+
+  // Save Role in the database
+  Role.create(role)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the role."
+      });
+    });
+};
+
+// Retrieve all roles from the database.
+exports.findAll = (req, res) => {
+  const roleId = req.query.roleId;
+  var condition = roleId ? {
+    roleId: {
+      [Op.like]: `%${roleId}%`
+    }
+  } : null;
+
+  Role.findAll({ where: condition })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving roles."
+      });
+    });
+};
 
 // Retrieve Role for a user from the database. 
 exports.getRoleForUser = (req, res) => {

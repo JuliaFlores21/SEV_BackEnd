@@ -51,7 +51,7 @@ db.role.hasMany(db.instrumentrole, { foreignKey:  { name: 'privateInstructorId',
 db.role.hasMany(db.instrumentrole, { foreignKey: { name: 'accompanistId', allowNull: false}, onDelete: 'CASCADE' });
 db.instrumentrole.belongsTo(db.role, { foreignKey: { name: 'studentId', allowNull: false}, onDelete: 'CASCADE', });
 db.instrumentrole.belongsTo(db.role, { foreignKey: { name: 'privateInstructorId', allowNull: false}, onDelete: 'CASCADE', });
-db.instrumentrole.belongsTo(db.role, { foreignKey: { name: 'accompanistId', allowNull: false}, onDelete: 'CASCADE', });
+db.instrumentrole.belongsTo(db.role, { foreignKey: { name: 'accompanistId'}, onDelete: 'CASCADE', });
 
 // foreign key for instrument
 db.instrument.hasMany(db.instrumentrole, { as: 'instrumentrole'}, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
