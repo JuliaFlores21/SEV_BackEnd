@@ -16,7 +16,6 @@ exports.create = (req, res) => {
 
   // Create a Role
   const role = {
-    userId: req.body.userId,
     roleType: req.body.roleType,
     facultyType: req.body.facultyType,
     facultyBio: req.body.facultyBio,
@@ -28,6 +27,7 @@ exports.create = (req, res) => {
     studentPrivateHours: req.body.studentPrivateHours,
     incomingStudentPassword: req.body.incomingStudentPassword,
     isApproved: req.body.isApproved
+    userId: req.body.userId,
   };
 
   // Save Role in the database
@@ -104,6 +104,71 @@ exports.findOne = (req, res) => {
       });
     });
 };
+ 
+ // Update a Role by the id in the request
+ exports.update = (req, res) => {
+   const id = req.params.id;
+   Role.update(req.body, {
+     where: { id: id }
+   })
+     .then(num => {
+       if (num == 1) {
+         res.send({
+           message: "Role was updated successfully."
+         });
+       } else {
+         res.send({
+           message: `Cannot update Role with id=${id}. Maybe Role was not found or req.body is empty!`
+         });
+       }
+     })
+     .catch(err => {
+       res.status(500).send({
+         message: "Error updating Role with id=" + id
+       });
+     });
+ };
+ 
+ // Delete a Role with the specified id in the request
+ exports.delete = (req, res) => {
+   const id = req.params.id;
+   Role.destroy({
+     where: { id: id }
+   })
+     .then(num => {
+       if (num == 1) {
+         res.send({
+           message: "Role was deleted successfully!"
+         });
+       } else {
+         res.send({
+           message: `Cannot delete Role with id=${id}. Maybe Role was not found!`
+         });
+       }
+     })
+     .catch(err => {
+       res.status(500).send({
+         message: "Could not delete role with id=" + id
+       });
+     });
+ };
+ 
+ // Delete all Roles from the database.
+ exports.deleteAll = (req, res) => {
+   Role.destroy({
+     where: {},
+     truncate: false
+   })
+     .then(nums => {
+       res.send({ message: `${nums} roles were deleted successfully!` });
+     })
+     .catch(err => {
+       res.status(500).send({
+         message:
+           err.message || "Some error occurred while removing all roles."
+       });
+     });
+ };
 
 // Update a Role by the id in the request
 exports.update = (req, res) => {
