@@ -1,6 +1,7 @@
 const db = require("../models");
 const Role = db.role;
 const User = db.user;
+const Level = db.level;
 const Op = db.Sequelize.Op;
 
 
@@ -88,7 +89,7 @@ exports.getRoleForUser = (req, res) => {
 
 exports.findOne = (req, res) => {
   const id = req.params.id;
-  Role.findByPk(id, {include:[{model: User, as: "user", required: true}]})
+  Role.findByPk(id, {include:[{model: User, as: "user", required: true},{model: Level, as: "level"}]})
     .then(data => {
       if (data) {
         res.send(data);
