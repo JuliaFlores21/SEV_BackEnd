@@ -4,19 +4,19 @@ module.exports = app => {
     var router = require("express").Router();
   
     // Create a new composer
-    router.post("/", [], composer.create);
+    router.post("/", [authenticate], composer.create);
   
     // Retrieve all composer time 
-    router.get("/", [], composer.findAll);
+    router.get("/", [authenticate], composer.findAll);
   
     // Retrieve a single composer with id
-    router.get("/:id", [], composer.findOne);
+    router.get("/:id", [authenticate], composer.findOne);
   
     // Update a composer with id
-    router.put("/:id", [], composer.update);
+    router.put("/:id", [authenticate], composer.update);
   
     // Delete a composer with id
-    router.delete("/:id", [], composer.delete);
+    router.delete("/:id", [authenticate], composer.delete);
   
     // Delete all composer
     // router.delete("/", [authenticate], composer.deleteAll);
