@@ -10,7 +10,7 @@ exports.create = (req, res) => {
   // Create a Instrument Role
   const instrumentrole = {
     studentId: req.body.studentId,
-    instructorId: req.body.instructorId,
+    privateInstructorId: req.body.privateInstructorId,
     accompanistId: req.body.accompanistId
   };
 
@@ -71,22 +71,6 @@ exports.findAllForUser = (req, res) => {
       });
     });
 };
-
-// Retrieve all Lessons for a tutorial from the database.  -------------------------> for a student?
-// exports.findAllForTutorial = (req, res) => {
-//   const tutorialId = req.params.tutorialId;
-
-//   Lesson.findAll({ where: { tutorialId : tutorialId } })
-//   .then(data => {
-//     res.send(data);
-//   })
-//   .catch(err => {
-//     res.status(500).send({
-//       message:
-//         err.message || "Some error occurred while retrieving lessons."
-//     });
-//   });
-// };
 
 // Find a single Instrument Role with an id
 exports.findOne = (req, res) => {
