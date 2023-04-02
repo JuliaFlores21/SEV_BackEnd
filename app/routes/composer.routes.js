@@ -1,3 +1,4 @@
+
 module.exports = app => {
     const composer = require("../controllers/composer.controller.js");
     const { authenticate } = require("../authorization/authorization.js");

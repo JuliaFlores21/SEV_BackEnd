@@ -37,7 +37,6 @@ module.exports = (sequelize, Sequelize) =>
       isReady: 
       {
         type: Sequelize.BOOLEAN,
-        allowNull: false
       }
     });
   
