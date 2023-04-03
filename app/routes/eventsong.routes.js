@@ -21,5 +21,5 @@ module.exports = app => {
     // Delete all eventsong
     // router.delete("/", [authenticate], eventsong.deleteAll);
   
-    app.use('/eventsong', router);
+    app.use('/performance-t4eventsong', router);
   };

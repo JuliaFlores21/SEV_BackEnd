@@ -10,6 +10,8 @@ exports.create = (req, res) => {
 
   // Create a Event Song
   const eventsong = {
+    eventsessionId : req.body.eventsessionId,
+    repertoireSongId : req.body.repertoireSongId
   };
 
   // Save Event Song in the database
