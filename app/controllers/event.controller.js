@@ -21,6 +21,7 @@ exports.create = (req, res) => {
     endTime: req.body.endTime,
     duration: req.body.duration,
     eventType: req.body.eventType,
+    eventTitle: req.body.eventTitle,
     isReady: req.body.isReady
   };
 
