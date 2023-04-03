@@ -1,6 +1,7 @@
 
 const db = require("../models");
 const Song = db.song;
+const Composer = db.composer;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Song
@@ -43,7 +44,7 @@ exports.findAll = (req, res) => {
     }
   } : null;
 
-  Song.findAll({ where: condition })
+  Song.findAll({ where: condition, include:[{model: Composer, as: "composer", required: true}] })
     .then(data => {
       res.send(data);
     })
