@@ -16,7 +16,11 @@ exports.create = (req, res) => {
   // Create a Event Session
   const eventsession = {
     startTime: req.body.startTime,
-    endTime: req.body.endTime
+    endTime: req.body.endTime,
+    eventId: req.body.eventId,
+    privateInstructorId: req.body.privateInstructorId,
+    accompanistId: req.body.accompanistId,
+    studentId: req.body.studentId
     };
 
   // Save Event Session in the database
