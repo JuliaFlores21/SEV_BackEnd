@@ -1,5 +1,5 @@
 module.exports = app => {
-    const critique = require("../controllers/eventsong.controller.js");
+    const eventsong = require("../controllers/eventsong.controller.js");
     const { authenticate } = require("../authorization/authorization.js");
     var router = require("express").Router();
   
@@ -11,6 +11,9 @@ module.exports = app => {
   
     // Retrieve a single eventsong with id
     router.get("/:id", [authenticate], eventsong.findOne);
+
+    // Retrieve all eventsongs for eventSession
+    router.get("/eventsessions/:eventsessionId", [authenticate], eventsong.findAllForEventSession);
   
     // Update a eventsong with id
     router.put("/:id", [authenticate], eventsong.update);
