@@ -1,7 +1,6 @@
-
 module.exports = (sequelize, Sequelize) => 
 {
-    const EventSession = sequelize.define("eventsession", 
+    const Notification = sequelize.define("notification", 
     {
       id: 
       {
@@ -9,21 +8,17 @@ module.exports = (sequelize, Sequelize) =>
         autoIncrement: true,
         primaryKey: true
       },
-      startTime: 
+      title: 
       {
         type: Sequelize.STRING,
         allowNull: false
       },
-      endTime: 
+      description: 
       {
         type: Sequelize.STRING,
         allowNull: false
-      },
-      hasPassed: 
-      {
-        type: Sequelize.STRING
       }
     });
   
-    return EventSession;
+    return Notification;
 };

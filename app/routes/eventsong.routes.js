@@ -1,5 +1,5 @@
 module.exports = app => {
-    const critique = require("../controllers/eventsong.controller.js");
+    const eventsong = require("../controllers/eventsong.controller.js");
     const { authenticate } = require("../authorization/authorization.js");
     var router = require("express").Router();
   
