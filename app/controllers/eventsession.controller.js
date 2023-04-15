@@ -21,7 +21,8 @@ exports.create = (req, res) => {
     eventId: req.body.eventId,
     studentId: req.body.studentId,
     accompanistId: req.body.accompanistId,
-    privateInstructorId: req.body.privateInstructorId
+    privateInstructorId: req.body.privateInstructorId,
+    hasPassed: req.body.hasPassed
     };
 
   // Save Event Session in the database

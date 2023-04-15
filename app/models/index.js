@@ -25,6 +25,7 @@ db.eventsong = require("./eventsong.model.js")(sequelize, Sequelize);
 db.instrument = require("./instrument.model.js")(sequelize, Sequelize);
 db.instrumentrole = require("./instrumentrole.model.js")(sequelize, Sequelize);
 db.level = require("./level.model.js")(sequelize, Sequelize);
+db.notification = require("./notification.model.js")(sequelize, Sequelize);
 db.role = require("./role.model.js")(sequelize, Sequelize);
 db.session = require("./session.model.js")(sequelize, Sequelize);
 db.repertoireSong = require("./repertoireSong.model.js")(sequelize, Sequelize);
@@ -43,6 +44,11 @@ db.role.belongsTo(db.user, { as: 'user'}, { foreignKey: { allowNull: false }, on
 // foreign key for level
 db.level.hasMany(db.role, { foreignKey: { name: 'studentLevel'}, onDelete: 'CASCADE' });
 db.role.belongsTo(db.level, { foreignKey: { name: 'studentLevel' }, onDelete: 'CASCADE' });
+
+//Notification Table:
+// foreign key for notification and role 
+db.role.hasMany(db.notification, { as: 'notification' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+db.notification.belongsTo(db.role, { as: 'role' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
 
 //Instrument Role Table:
 // foreign key for role
