@@ -50,6 +50,26 @@ db.role.belongsTo(db.level, { foreignKey: { name: 'studentLevel' }, onDelete: 'C
 db.role.hasMany(db.notification, { as: 'notification' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
 db.notification.belongsTo(db.role, { as: 'role' }, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
 
+// foreign key for notification and event 
+db.event.hasMany(db.notification, { as: 'notification' }, { onDelete: 'CASCADE' });
+db.notification.belongsTo(db.event, { as: 'event' }, { onDelete: 'CASCADE' });
+
+// foreign key for notification and event session
+db.eventsession.hasMany(db.notification, { as: 'notification' }, { onDelete: 'CASCADE' });
+db.notification.belongsTo(db.eventsession, { as: 'eventsession' }, { onDelete: 'CASCADE' });
+
+// foreign key for notification and composer 
+db.composer.hasMany(db.notification, { as: 'notification' }, { onDelete: 'CASCADE' });
+db.notification.belongsTo(db.composer, { as: 'composer' }, { onDelete: 'CASCADE' });
+
+// foreign key for notification and song 
+db.song.hasMany(db.notification, { as: 'notification' }, { onDelete: 'CASCADE' });
+db.notification.belongsTo(db.song, { as: 'song' }, { onDelete: 'CASCADE' });
+
+// foreign key for notification and song 
+db.availability.hasMany(db.notification, { as: 'notification' }, { onDelete: 'CASCADE' });
+db.notification.belongsTo(db.availability, { as: 'availability' }, { onDelete: 'CASCADE' });
+
 //Instrument Role Table:
 // foreign key for role
 db.role.hasMany(db.instrumentrole, { foreignKey: { name: 'studentId', allowNull: false}, onDelete: 'CASCADE' });
