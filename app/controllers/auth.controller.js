@@ -1,9 +1,8 @@
-
 const db = require("../models");
 const authconfig = require("../config/auth.config");
+const Role = db.role;
 const User = db.user;
 const Session = db.session;
-const Role = db.role;
 
 const {google} = require('googleapis');
 
@@ -36,6 +35,7 @@ exports.login = async (req, res) => {
 
     console.log(lastName)
     
+
     let user = {};
 
     await User.findOne({
@@ -93,6 +93,36 @@ exports.login = async (req, res) => {
         });
     }
 
+
+    let access=[];
+
+
+    // sets access for user
+  await  Role.findAll({ where: { userId: user.id } })
+  .then((data) => {
+    // let types=[];
+    // let ids=[];
+    let roles=[];
+    for (let i = 0; i < data.length; i++) {
+        // let id = data[i].dataValues.id;
+        // let type = data[i].dataValues.roleType;
+        // access.push({id : type})
+        // ids.push(data[i].dataValues.id);
+        // types.push(data[i].dataValues.roleType);
+        roles.push(data[i].dataValues.roleType);
+    }
+    access.push(roles);
+    console.log(access);
+  })
+  .catch((err) => {
+    console.log("Error finding roles for person: " + err);
+    res.status(500).send({
+      message: "Error finding roles for person: " + err,
+    });
+    return;
+  });
+
+
     // create a new Session with an expiration date and save to database
     let token = jwt.sign({ id:email }, authconfig.secret, {expiresIn: 86400});
     let tempExpirationDate = new Date();
@@ -105,6 +135,8 @@ exports.login = async (req, res) => {
     }
 
     console.log(session)
+
+    let selectedRole = access[0][0];
     
     Session.create(session)
     .then(() => {
@@ -113,7 +145,9 @@ exports.login = async (req, res) => {
             fName : user.fName,
             lName : user.lName,
             userId : user.id,
-            token: token,
+            access : access,
+            selectedRole : selectedRole,
+            token: token
             // add role string
             // refresh_token: user.refresh_token,
             // expiration_date: user.expiration_date
