@@ -3,6 +3,7 @@ const authconfig = require("../config/auth.config");
 const Role = db.role;
 const User = db.user;
 const Session = db.session;
+const Role = db.role;
 
 const {google} = require('googleapis');
 
@@ -148,6 +149,7 @@ exports.login = async (req, res) => {
             access : access,
             selectedRole : selectedRole,
             token: token
+            // add role string
             // refresh_token: user.refresh_token,
             // expiration_date: user.expiration_date
         }

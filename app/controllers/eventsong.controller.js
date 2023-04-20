@@ -49,10 +49,10 @@ exports.findAll = (req, res) => {
 };
 
 // Retrieve all Event Songs for an event from the database.
- exports.findAllForEvent = (req, res) => {
-   const eventId = req.params.eventId;
+ exports.findAllForEventSession = (req, res) => {
+   const eventsessionId = req.params.eventsessionId;
 
-   EventSong.findAll({ where: { eventId : eventId } })
+   EventSong.findAll({ where: { eventsessionId : eventsessionId } })
    .then(data => {
      res.send(data);
    })
