@@ -47,7 +47,7 @@ exports.findAll = (req, res) => {
     }
   } : null;
 
-  EventSession.findAll({ where: condition })
+  EventSession.findAll({ where: condition, include:[{model: Event, as: "event", required: true}] })
     .then(data => {
       res.send(data);
     })
