@@ -3,7 +3,6 @@ const authconfig = require("../config/auth.config");
 const Role = db.role;
 const User = db.user;
 const Session = db.session;
-const Role = db.role;
 
 const {google} = require('googleapis');
 
