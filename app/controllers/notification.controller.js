@@ -1,5 +1,6 @@
 const db = require("../models");
 const Notification = db.notification;
+const Role = db.role;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Notification
@@ -14,25 +15,90 @@ exports.create = (req, res) =>
     return;
   }
 
-  // Create a Notification
   const notification = 
-  {
-    description: req.body.description,
-    title: req.body.title,
-    roleId: req.body.roleId
-  };
+      {
+        description: req.body.description,
+        title: req.body.title,
+        type: req.body.type,
+        roleId: req.body.roleId,
+        eventId: req.body.eventId,
+        eventsessionId: req.body.eventsessionId,
+        composerId: req.body.composerId,
+        songId: req.body.songId,
+        availabilityId: req.body.availabilityId,
+      };
 
-  // Save Notification in the database
-  Notification.create(notification)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Notification."
-      });
-    });
+      // Save Notification in the database
+      Notification.create(notification)
+        .then(data => {
+          res.send(data);
+        })
+        .catch(err => {
+          res.status(500).send({
+            message:
+              err.message || "Some error occurred while creating the Notification."
+          });
+        });
+
+  // const roleType = req.body.type;
+  // console.log('Role Type  == ',roleType);
+  // var allRoles = [];
+  // Role.findAll({ where: {roleType : roleType} })
+  //   .then(data => {
+  //      //console.log('===========2',data);
+  //      for(let i = 0; i < data.length; i++){
+  //       allRoles.push(data[i].dataValues);
+  //      }
+  //      console.log('all roles', allRoles);
+  //   })
+  //   .catch(err => {
+  //     res.status(500).send({
+  //       message:
+  //         err.message || "Some error occurred while retrieving roles."
+  //     });
+  //   });
+
+
+
+
+
+
+
+    // console.log("roles for notification");
+    // console.log(allRoles);
+
+    
+    // var allNotifications = [];
+    //   for(let i = 0; i < allRoles.length; i++){
+
+      
+    //   // Create a Notification
+    //   const notification = 
+    //   {
+    //     description: req.body.description,
+    //     title: req.body.title,
+    //     type: req.body.type,
+    //     roleId: allRoles[i].roleId,
+    //     eventId: req.body.eventId,
+    //     eventsessionId: req.body.eventsessionId,
+    //     composerId: req.body.composerId,
+    //     songId: req.body.songId,
+    //     availabilityId: req.body.availabilityId,
+    //   };
+    //   allNotifications.push(notification);
+    //   }
+    //   // Save Notification in the database
+    //   Notification.create(allNotifications)
+    //     .then(data => {
+    //       res.send(data);
+    //     })
+    //     .catch(err => {
+    //       res.status(500).send({
+    //         message:
+    //           err.message || "Some error occurred while creating the Notification."
+    //       });
+    //     });
+
 };
 
 // Retrieve all notifications from the database.
@@ -55,6 +121,29 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+exports.getNotificationsForRole = (req, res) => {
+  const roleId = req.params.roleId;
+  Notification.findAll({ where: { roleId: roleId } })
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find Role for user with id=${roleId}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message ||
+          "Error retrieving Role for user with id=" + roleId,
+      });
+    });
+ };
+
+
 
 // Retrieve all Lessons for a tutorial from the database.
 // exports.findAllForTutorial = (req, res) => {
