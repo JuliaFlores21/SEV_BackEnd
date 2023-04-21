@@ -3,6 +3,20 @@ const db = require("../models");
 const Song = db.song;
 const Composer = db.composer;
 const Op = db.Sequelize.Op;
+const nodemailer = require('nodemailer');
+const email_pw = process.env.EMAIL_PW
+
+
+//Configuring Nodemailer transport
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true, 
+  auth: {
+      user: 'julia.flores@eagles.oc.edu',
+      pass: email_pw
+  }
+});
 
 // Create and Save a new Song
 exports.create = (req, res) => {
@@ -25,6 +39,7 @@ exports.create = (req, res) => {
   // Save Event Song in the database
   Song.create(song)
     .then(data => {
+      sendNewSongEmail(data);
       res.send(data);
     })
     .catch(err => {
@@ -34,6 +49,25 @@ exports.create = (req, res) => {
       });
     });
 };
+
+// Send email when a new composer is added
+function sendNewSongEmail(songData) {
+  const mailOptions = {
+    from: 'julia.flores@eagles.oc.edu',
+    to: 'julia.flores@eagles.oc.edu',
+    subject: 'New Vocal Piece Added',
+    html: `<p>There is a new vocal piece waiting for approval:</p><ul><li>Title: ${songData.title}</li><li>Language: ${songData.language}</li><li>Translation: ${songData.translation}</li></ul>`,
+    text: `There is a new composer waiting for approval:\n\nTitle: ${songData.title}\nLanguage: ${songData.language}\nTranslation: ${songData.translation}`
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Email sent: ' + info.response);
+    }
+  });
+}
 
 // Retrieve all songs from the database.
 exports.findAll = (req, res) => {

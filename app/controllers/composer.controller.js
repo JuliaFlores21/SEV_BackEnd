@@ -1,6 +1,21 @@
 const db = require("../models");
 const Composer = db.composer;
 const Op = db.Sequelize.Op;
+const nodemailer = require('nodemailer');
+const email_pw = process.env.EMAIL_PW
+
+
+//Configuring Nodemailer transport
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true, 
+  auth: {
+      user: 'julia.flores@eagles.oc.edu',
+      pass: email_pw
+  }
+});
+
 
 // Create and Save a new Composer
 exports.create = (req, res) => 
@@ -27,15 +42,35 @@ exports.create = (req, res) =>
   // Save Composer in the database
   Composer.create(composer)
     .then(data => {
+      sendNewComposerEmail(data);
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Availability."
+          err.message || "Some error occurred while creating the Composer."
       });
     });
 };
+
+// Send email when a new composer is added
+function sendNewComposerEmail(composerData) {
+  const mailOptions = {
+    from: 'julia.flores@eagles.oc.edu',
+    to: 'julia.flores@eagles.oc.edu',
+    subject: 'New Composer Added',
+    html: `<p>There is a new composer waiting for approval:</p><ul><li>First Name: ${composerData.firstName}</li><li>Last Name: ${composerData.lastName}</li><li>Nationality: ${composerData.nationality}</li><li>Birthday: ${composerData.birthday}</li><li>Death Date: ${composerData.deathDate}</li></ul>`,
+    text: `There is a new composer waiting for approval:\n\nFirst Name: ${composerData.firstName}\nLast Name: ${composerData.lastName}\nNationality: ${composerData.nationality}\nBirthday: ${composerData.birthday}\nDeath Date: ${composerData.deathDate}`
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Email sent: ' + info.response);
+    }
+  });
+}
 
 // Retrieve all composers from the database.
 exports.findAll = (req, res) => {

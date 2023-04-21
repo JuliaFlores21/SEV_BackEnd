@@ -31,7 +31,9 @@ exports.create = (req, res) => {
     diction: req.body.diction,
     dictionGrade: req.body.dictionGrade,
     performSuggest: req.body.performSuggest,
-    hasPassed: req.body.hasPassed
+    hasPassed: req.body.hasPassed,
+    studentId: req.body.studentId,
+    facultyId: req.body.facultyId
   };
 
   // Save Critique in the database
