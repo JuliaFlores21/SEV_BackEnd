@@ -22,6 +22,7 @@
     "googleapis": "^100.0.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.9.1",
     "parser": "^0.1.4",
     "sequelize": "^6.31.0"
   }
