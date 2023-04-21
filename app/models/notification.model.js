@@ -17,7 +17,11 @@ module.exports = (sequelize, Sequelize) =>
       {
         type: Sequelize.STRING,
         allowNull: false
-      }
+      },
+      type: 
+      {
+        type: Sequelize.STRING
+      },
     });
   
     return Notification;
