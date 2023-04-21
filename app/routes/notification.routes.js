@@ -11,7 +11,10 @@ module.exports = app => {
   
     // Retrieve a single notification with id
     router.get("/:id", [authenticate], notification.findOne);
-  
+
+    // Retrieve all Notifications for Role id
+    router.get("/role/:roleId", [authenticate], notification.getNotificationsForRole);
+
     // Update a notification with id
     router.put("/:id", [authenticate], notification.update);
   
