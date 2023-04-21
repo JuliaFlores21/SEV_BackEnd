@@ -33,7 +33,8 @@ exports.create = (req, res) => {
     performSuggest: req.body.performSuggest,
     hasPassed: req.body.hasPassed,
     studentId: req.body.studentId,
-    facultyId: req.body.facultyId
+    facultyId: req.body.facultyId,
+    eventsessionId: req.body.eventsessionId
   };
 
   // Save Critique in the database
